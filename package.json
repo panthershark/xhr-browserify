@@ -1,6 +1,6 @@
 {
   "name": "xhr-browserify",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Browserify compatible xhr module with support for jsonp",
   "main": "index.js",
   "scripts": {

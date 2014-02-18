@@ -28,5 +28,5 @@ xhr(uri, { jsonp: true }, function(err, data) {
 
 ## Options
 
-* *jsonp*: if true, then a callback is sent to the server and the output is parsed.  default: false
-
+* `json`: if true, the data is parsed as JSON when it comes back from the server. *default*: `true`
+* `jsonp`: if true, then a callback is sent to the server and the output is parsed. *default*: `false`

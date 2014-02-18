@@ -1,6 +1,6 @@
 {
   "name": "xhr-browserify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Browserify compatible xhr module with support for jsonp",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,12 @@
     "type": "git",
     "url": "git://github.com/tommydudebreaux/xhr-browserify.git"
   },
+  "contributors": [
+    {
+      "name":"Daniel Hough",
+      "email":"daniel.hough@gmail.com"
+    }
+  ],
   "keywords": [
     "xhr",
     "browserify",

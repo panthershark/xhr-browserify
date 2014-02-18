@@ -40,7 +40,7 @@ var jsonp = function(uri, done) {
 
 var xhr = function(uri, done) {
   http.get(uri, function (res) {
-    var buf = null;
+    var buf = '';
 
     res.on('data', function (data) {
       buf += data;

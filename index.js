@@ -2,7 +2,7 @@ var http = require('http');
 var jsonpCallbacks = {};
 var url = require('url');
 
-var jsonp = function (uri, done) {
+var jsonp = function(uri, callbackName, done) {
   var id;
   var fn;
 
@@ -21,7 +21,7 @@ var jsonp = function (uri, done) {
   // append jsonp callback to url
   delete uri.search;
   uri.query = uri.query || {};
-  uri.query.callback = id;
+  uri.query[callbackName] = id;
 
   // append callback
   var script = document.createElement('script');
@@ -70,7 +70,8 @@ module.exports = function (uri, options, callback) {
   }
 
   if (options.jsonp && typeof (window) != 'undefined') {
-    jsonp(uri, callback);
+    var callbackName = options.callbackName || 'callback';
+    jsonp(uri, callbackName, callback);
   } else {
     xhr(uri, callback);
   }

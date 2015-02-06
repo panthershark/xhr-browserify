@@ -41,14 +41,20 @@ var jsonp = function (uri, done) {
 
 var xhr = function (uri, done) {
   http.get(uri, function (res) {
-    var buf = null;
+    var buf = [];
 
-    res.on('data', function (data) {
-      buf += data;
+    res.on('data', function (chunk) {
+      buf.push(chunk);
     });
 
     res.on('end', function () {
-      done(JSON.parse(buf));
+      var data = buf.join('');
+
+      try {
+        data = JSON.parse(buf);
+      } catch (e) {}
+
+      done(null, data);
     });
   });
 };
@@ -63,7 +69,7 @@ module.exports = function (uri, options, callback) {
     uri = url.parse(uri);
   }
 
-  if (options.jsonp) {
+  if (options.jsonp && typeof (window) != 'undefined') {
     jsonp(uri, callback);
   } else {
     xhr(uri, callback);

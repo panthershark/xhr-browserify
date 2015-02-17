@@ -51,7 +51,7 @@ var xhr = function (uri, done) {
       var data = buf.join('');
 
       try {
-        data = JSON.parse(buf);
+        data = JSON.parse(data);
       } catch (e) {}
 
       done(null, data);
